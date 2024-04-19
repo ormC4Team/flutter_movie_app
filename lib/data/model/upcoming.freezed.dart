@@ -27,7 +27,7 @@ mixin _$Upcoming {
   String get title => throw _privateConstructorUsedError;
   String get overview => throw _privateConstructorUsedError;
   String get releaseDate => throw _privateConstructorUsedError;
-  String get voteAverage => throw _privateConstructorUsedError;
+  int get voteAverage => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -48,7 +48,7 @@ abstract class $UpcomingCopyWith<$Res> {
       String title,
       String overview,
       String releaseDate,
-      String voteAverage});
+      int voteAverage});
 }
 
 /// @nodoc
@@ -105,7 +105,7 @@ class _$UpcomingCopyWithImpl<$Res, $Val extends Upcoming>
       voteAverage: null == voteAverage
           ? _value.voteAverage
           : voteAverage // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ) as $Val);
   }
 }
@@ -126,7 +126,7 @@ abstract class _$$UpcomingImplCopyWith<$Res>
       String title,
       String overview,
       String releaseDate,
-      String voteAverage});
+      int voteAverage});
 }
 
 /// @nodoc
@@ -181,7 +181,7 @@ class __$$UpcomingImplCopyWithImpl<$Res>
       voteAverage: null == voteAverage
           ? _value.voteAverage
           : voteAverage // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ));
   }
 }
@@ -224,7 +224,7 @@ class _$UpcomingImpl implements _Upcoming {
   @override
   final String releaseDate;
   @override
-  final String voteAverage;
+  final int voteAverage;
 
   @override
   String toString() {
@@ -286,7 +286,7 @@ abstract class _Upcoming implements Upcoming {
       required final String title,
       required final String overview,
       required final String releaseDate,
-      required final String voteAverage}) = _$UpcomingImpl;
+      required final int voteAverage}) = _$UpcomingImpl;
 
   factory _Upcoming.fromJson(Map<String, dynamic> json) =
       _$UpcomingImpl.fromJson;
@@ -306,7 +306,7 @@ abstract class _Upcoming implements Upcoming {
   @override
   String get releaseDate;
   @override
-  String get voteAverage;
+  int get voteAverage;
   @override
   @JsonKey(ignore: true)
   _$$UpcomingImplCopyWith<_$UpcomingImpl> get copyWith =>
