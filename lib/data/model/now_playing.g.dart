@@ -16,7 +16,7 @@ _$NowPlayingImpl _$$NowPlayingImplFromJson(Map<String, dynamic> json) =>
       title: json['title'] as String,
       overview: json['overview'] as String,
       releaseDate: json['releaseDate'] as String,
-      voteAverage: json['voteAverage'] as String,
+      voteAverage: json['voteAverage'] as int,
     );
 
 Map<String, dynamic> _$$NowPlayingImplToJson(_$NowPlayingImpl instance) =>

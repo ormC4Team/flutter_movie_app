@@ -27,7 +27,7 @@ mixin _$NowPlaying {
   String get title => throw _privateConstructorUsedError;
   String get overview => throw _privateConstructorUsedError;
   String get releaseDate => throw _privateConstructorUsedError;
-  String get voteAverage => throw _privateConstructorUsedError;
+  int get voteAverage => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -49,7 +49,7 @@ abstract class $NowPlayingCopyWith<$Res> {
       String title,
       String overview,
       String releaseDate,
-      String voteAverage});
+      int voteAverage});
 }
 
 /// @nodoc
@@ -106,7 +106,7 @@ class _$NowPlayingCopyWithImpl<$Res, $Val extends NowPlaying>
       voteAverage: null == voteAverage
           ? _value.voteAverage
           : voteAverage // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ) as $Val);
   }
 }
@@ -127,7 +127,7 @@ abstract class _$$NowPlayingImplCopyWith<$Res>
       String title,
       String overview,
       String releaseDate,
-      String voteAverage});
+      int voteAverage});
 }
 
 /// @nodoc
@@ -182,7 +182,7 @@ class __$$NowPlayingImplCopyWithImpl<$Res>
       voteAverage: null == voteAverage
           ? _value.voteAverage
           : voteAverage // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ));
   }
 }
@@ -225,7 +225,7 @@ class _$NowPlayingImpl implements _NowPlaying {
   @override
   final String releaseDate;
   @override
-  final String voteAverage;
+  final int voteAverage;
 
   @override
   String toString() {
@@ -287,7 +287,7 @@ abstract class _NowPlaying implements NowPlaying {
       required final String title,
       required final String overview,
       required final String releaseDate,
-      required final String voteAverage}) = _$NowPlayingImpl;
+      required final int voteAverage}) = _$NowPlayingImpl;
 
   factory _NowPlaying.fromJson(Map<String, dynamic> json) =
       _$NowPlayingImpl.fromJson;
@@ -307,7 +307,7 @@ abstract class _NowPlaying implements NowPlaying {
   @override
   String get releaseDate;
   @override
-  String get voteAverage;
+  int get voteAverage;
   @override
   @JsonKey(ignore: true)
   _$$NowPlayingImplCopyWith<_$NowPlayingImpl> get copyWith =>
