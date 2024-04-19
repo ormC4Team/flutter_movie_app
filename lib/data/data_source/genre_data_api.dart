@@ -1,12 +1,14 @@
 import 'dart:convert';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_movie_app/data/dto/genres_dto.dart';
+import 'package:flutter_movie_app/data/model/genre.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class GenreDataApi {
   final apiKey = dotenv.get('API_KEY');
 
+  // 장르 목록 가져오기
   Future<GenresDto> getGenresDto() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
@@ -33,4 +35,12 @@ class GenreDataApi {
     return jsonDecode(response.body);
   }
 
+  // 선호하는 장르 목록 저장하기
+  Future<String> fetchFavoriteGenresDto(List<Genre> genres) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    if (genres.isEmpty) throw Exception('선택한 장르 없음');
+    bool isSuccess = await prefs.setString('favoriteGenre', jsonEncode(genres));
+
+    return isSuccess ? '저장 완료' : '저장 실패';
+  }
 }
