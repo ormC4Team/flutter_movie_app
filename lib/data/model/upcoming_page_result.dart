@@ -1,5 +1,6 @@
-import 'package:flutter_movie_app/data/dto/now_playing_dto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../dto/upcoming_dto.dart';
 
 part 'upcoming_page_result.freezed.dart';
 

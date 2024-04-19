@@ -1,8 +1,8 @@
-import 'package:flutter_movie_app/data/dto/now_playing_dto.dart';
+import 'package:flutter_movie_app/data/dto/upcoming_dto.dart';
 import 'package:flutter_movie_app/data/model/upcoming.dart';
 import 'package:flutter_movie_app/data/model/upcoming_page_result.dart';
 
-extension UpcomingResultMapper on NowPlayingDto {
+extension UpcomingResultMapper on UpcomingDto {
   UpcomingPageResult toResult() {
     return UpcomingPageResult(
       results: results ?? [],
