@@ -5,8 +5,8 @@ import '../data_source/movie_detail_api.dart';
 import '../dto/movie_detail_dto.dart';
 
 class MovieDetailRepositoryImpl implements MovieDetailRepository {
-
   final MovieDetailApi _movieDetailApi;
+
   MovieDetailRepositoryImpl(this._movieDetailApi);
 
   @override
@@ -16,20 +16,14 @@ class MovieDetailRepositoryImpl implements MovieDetailRepository {
   }
 }
 
+// GetMovieDetail 테스트
 void main() async {
   final movieDetailApi = MovieDetailApi();
   final movieDetailRepository = MovieDetailRepositoryImpl(movieDetailApi);
   final String movieId = '693134';
-  try {
-    final movieDetail = await movieDetailRepository.getMovieDetail(movieId);
-    print('제목: ${movieDetail.title}');
-    print('소개: ${movieDetail.overview}');
-    print('태그: ${movieDetail.tagline}');
-    print('개봉일: ${movieDetail.releaseDate}');
-    print('장르: ${movieDetail.genres.map((genre) => genre.name).join(', ')}');
-    print('상영시간: ${movieDetail.runtime}');
-    print('별점: ${movieDetail.voteAverage}');
-  } catch (e) {
-    print('Error fetching movie details: $e');
+
+  final movieDetail = await movieDetailRepository.getMovieDetail(movieId);
+  for (var entry in movieDetail.toJson().entries) {
+    print('${entry.key}: ${entry.value}');
   }
 }

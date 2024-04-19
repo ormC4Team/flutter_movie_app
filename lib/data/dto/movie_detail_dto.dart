@@ -1,36 +1,39 @@
 class MovieDetailDto {
   MovieDetailDto({
-      this.adult, 
-      this.backdropPath, 
-      this.belongsToCollection, 
-      this.budget, 
-      this.genres, 
-      this.homepage, 
-      this.id, 
-      this.imdbId, 
-      this.originCountry, 
-      this.originalLanguage, 
-      this.originalTitle, 
-      this.overview, 
-      this.popularity, 
-      this.posterPath, 
-      this.productionCompanies, 
-      this.productionCountries, 
-      this.releaseDate, 
-      this.revenue, 
-      this.runtime, 
-      this.spokenLanguages, 
-      this.status, 
-      this.tagline, 
-      this.title, 
-      this.video, 
-      this.voteAverage, 
-      this.voteCount,});
+    this.adult,
+    this.backdropPath,
+    this.belongsToCollection,
+    this.budget,
+    this.genres,
+    this.homepage,
+    this.id,
+    this.imdbId,
+    this.originCountry,
+    this.originalLanguage,
+    this.originalTitle,
+    this.overview,
+    this.popularity,
+    this.posterPath,
+    this.productionCompanies,
+    this.productionCountries,
+    this.releaseDate,
+    this.revenue,
+    this.runtime,
+    this.spokenLanguages,
+    this.status,
+    this.tagline,
+    this.title,
+    this.video,
+    this.voteAverage,
+    this.voteCount,
+  });
 
   MovieDetailDto.fromJson(dynamic json) {
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
-    belongsToCollection = json['belongs_to_collection'] != null ? BelongsToCollection.fromJson(json['belongs_to_collection']) : null;
+    belongsToCollection = json['belongs_to_collection'] != null
+        ? BelongsToCollection.fromJson(json['belongs_to_collection'])
+        : null;
     budget = json['budget'];
     if (json['genres'] != null) {
       genres = [];
@@ -41,7 +44,9 @@ class MovieDetailDto {
     homepage = json['homepage'];
     id = json['id'];
     imdbId = json['imdb_id'];
-    originCountry = json['origin_country'] != null ? json['origin_country'].cast<String>() : [];
+    originCountry = json['origin_country'] != null
+        ? json['origin_country'].cast<String>()
+        : [];
     originalLanguage = json['original_language'];
     originalTitle = json['original_title'];
     overview = json['overview'];
@@ -75,6 +80,7 @@ class MovieDetailDto {
     voteAverage = json['vote_average'];
     voteCount = json['vote_count'];
   }
+
   bool? adult;
   String? backdropPath;
   BelongsToCollection? belongsToCollection;
@@ -101,59 +107,64 @@ class MovieDetailDto {
   bool? video;
   double? voteAverage;
   int? voteCount;
-MovieDetailDto copyWith({  bool? adult,
-  String? backdropPath,
-  BelongsToCollection? belongsToCollection,
-  int? budget,
-  List<Genres>? genres,
-  String? homepage,
-  int? id,
-  String? imdbId,
-  List<String>? originCountry,
-  String? originalLanguage,
-  String? originalTitle,
-  String? overview,
-  double? popularity,
-  String? posterPath,
-  List<ProductionCompanies>? productionCompanies,
-  List<ProductionCountries>? productionCountries,
-  String? releaseDate,
-  int? revenue,
-  int? runtime,
-  List<SpokenLanguages>? spokenLanguages,
-  String? status,
-  String? tagline,
-  String? title,
-  bool? video,
-  double? voteAverage,
-  int? voteCount,
-}) => MovieDetailDto(  adult: adult ?? this.adult,
-  backdropPath: backdropPath ?? this.backdropPath,
-  belongsToCollection: belongsToCollection ?? this.belongsToCollection,
-  budget: budget ?? this.budget,
-  genres: genres ?? this.genres,
-  homepage: homepage ?? this.homepage,
-  id: id ?? this.id,
-  imdbId: imdbId ?? this.imdbId,
-  originCountry: originCountry ?? this.originCountry,
-  originalLanguage: originalLanguage ?? this.originalLanguage,
-  originalTitle: originalTitle ?? this.originalTitle,
-  overview: overview ?? this.overview,
-  popularity: popularity ?? this.popularity,
-  posterPath: posterPath ?? this.posterPath,
-  productionCompanies: productionCompanies ?? this.productionCompanies,
-  productionCountries: productionCountries ?? this.productionCountries,
-  releaseDate: releaseDate ?? this.releaseDate,
-  revenue: revenue ?? this.revenue,
-  runtime: runtime ?? this.runtime,
-  spokenLanguages: spokenLanguages ?? this.spokenLanguages,
-  status: status ?? this.status,
-  tagline: tagline ?? this.tagline,
-  title: title ?? this.title,
-  video: video ?? this.video,
-  voteAverage: voteAverage ?? this.voteAverage,
-  voteCount: voteCount ?? this.voteCount,
-);
+
+  MovieDetailDto copyWith({
+    bool? adult,
+    String? backdropPath,
+    BelongsToCollection? belongsToCollection,
+    int? budget,
+    List<Genres>? genres,
+    String? homepage,
+    int? id,
+    String? imdbId,
+    List<String>? originCountry,
+    String? originalLanguage,
+    String? originalTitle,
+    String? overview,
+    double? popularity,
+    String? posterPath,
+    List<ProductionCompanies>? productionCompanies,
+    List<ProductionCountries>? productionCountries,
+    String? releaseDate,
+    int? revenue,
+    int? runtime,
+    List<SpokenLanguages>? spokenLanguages,
+    String? status,
+    String? tagline,
+    String? title,
+    bool? video,
+    double? voteAverage,
+    int? voteCount,
+  }) =>
+      MovieDetailDto(
+        adult: adult ?? this.adult,
+        backdropPath: backdropPath ?? this.backdropPath,
+        belongsToCollection: belongsToCollection ?? this.belongsToCollection,
+        budget: budget ?? this.budget,
+        genres: genres ?? this.genres,
+        homepage: homepage ?? this.homepage,
+        id: id ?? this.id,
+        imdbId: imdbId ?? this.imdbId,
+        originCountry: originCountry ?? this.originCountry,
+        originalLanguage: originalLanguage ?? this.originalLanguage,
+        originalTitle: originalTitle ?? this.originalTitle,
+        overview: overview ?? this.overview,
+        popularity: popularity ?? this.popularity,
+        posterPath: posterPath ?? this.posterPath,
+        productionCompanies: productionCompanies ?? this.productionCompanies,
+        productionCountries: productionCountries ?? this.productionCountries,
+        releaseDate: releaseDate ?? this.releaseDate,
+        revenue: revenue ?? this.revenue,
+        runtime: runtime ?? this.runtime,
+        spokenLanguages: spokenLanguages ?? this.spokenLanguages,
+        status: status ?? this.status,
+        tagline: tagline ?? this.tagline,
+        title: title ?? this.title,
+        video: video ?? this.video,
+        voteAverage: voteAverage ?? this.voteAverage,
+        voteCount: voteCount ?? this.voteCount,
+      );
+
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['adult'] = adult;
@@ -175,16 +186,19 @@ MovieDetailDto copyWith({  bool? adult,
     map['popularity'] = popularity;
     map['poster_path'] = posterPath;
     if (productionCompanies != null) {
-      map['production_companies'] = productionCompanies?.map((v) => v.toJson()).toList();
+      map['production_companies'] =
+          productionCompanies?.map((v) => v.toJson()).toList();
     }
     if (productionCountries != null) {
-      map['production_countries'] = productionCountries?.map((v) => v.toJson()).toList();
+      map['production_countries'] =
+          productionCountries?.map((v) => v.toJson()).toList();
     }
     map['release_date'] = releaseDate;
     map['revenue'] = revenue;
     map['runtime'] = runtime;
     if (spokenLanguages != null) {
-      map['spoken_languages'] = spokenLanguages?.map((v) => v.toJson()).toList();
+      map['spoken_languages'] =
+          spokenLanguages?.map((v) => v.toJson()).toList();
     }
     map['status'] = status;
     map['tagline'] = tagline;
@@ -194,30 +208,36 @@ MovieDetailDto copyWith({  bool? adult,
     map['vote_count'] = voteCount;
     return map;
   }
-
 }
 
 class SpokenLanguages {
   SpokenLanguages({
-      this.englishName, 
-      this.iso6391, 
-      this.name,});
+    this.englishName,
+    this.iso6391,
+    this.name,
+  });
 
   SpokenLanguages.fromJson(dynamic json) {
     englishName = json['english_name'];
     iso6391 = json['iso_639_1'];
     name = json['name'];
   }
+
   String? englishName;
   String? iso6391;
   String? name;
-SpokenLanguages copyWith({  String? englishName,
-  String? iso6391,
-  String? name,
-}) => SpokenLanguages(  englishName: englishName ?? this.englishName,
-  iso6391: iso6391 ?? this.iso6391,
-  name: name ?? this.name,
-);
+
+  SpokenLanguages copyWith({
+    String? englishName,
+    String? iso6391,
+    String? name,
+  }) =>
+      SpokenLanguages(
+        englishName: englishName ?? this.englishName,
+        iso6391: iso6391 ?? this.iso6391,
+        name: name ?? this.name,
+      );
+
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['english_name'] = englishName;
@@ -225,40 +245,46 @@ SpokenLanguages copyWith({  String? englishName,
     map['name'] = name;
     return map;
   }
-
 }
 
 class ProductionCountries {
   ProductionCountries({
-      this.iso31661, 
-      this.name,});
+    this.iso31661,
+    this.name,
+  });
 
   ProductionCountries.fromJson(dynamic json) {
     iso31661 = json['iso_3166_1'];
     name = json['name'];
   }
+
   String? iso31661;
   String? name;
-ProductionCountries copyWith({  String? iso31661,
-  String? name,
-}) => ProductionCountries(  iso31661: iso31661 ?? this.iso31661,
-  name: name ?? this.name,
-);
+
+  ProductionCountries copyWith({
+    String? iso31661,
+    String? name,
+  }) =>
+      ProductionCountries(
+        iso31661: iso31661 ?? this.iso31661,
+        name: name ?? this.name,
+      );
+
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['iso_3166_1'] = iso31661;
     map['name'] = name;
     return map;
   }
-
 }
 
 class ProductionCompanies {
   ProductionCompanies({
-      this.id, 
-      this.logoPath, 
-      this.name, 
-      this.originCountry,});
+    this.id,
+    this.logoPath,
+    this.name,
+    this.originCountry,
+  });
 
   ProductionCompanies.fromJson(dynamic json) {
     id = json['id'];
@@ -266,19 +292,25 @@ class ProductionCompanies {
     name = json['name'];
     originCountry = json['origin_country'];
   }
+
   int? id;
   String? logoPath;
   String? name;
   String? originCountry;
-ProductionCompanies copyWith({  int? id,
-  String? logoPath,
-  String? name,
-  String? originCountry,
-}) => ProductionCompanies(  id: id ?? this.id,
-  logoPath: logoPath ?? this.logoPath,
-  name: name ?? this.name,
-  originCountry: originCountry ?? this.originCountry,
-);
+
+  ProductionCompanies copyWith({
+    int? id,
+    String? logoPath,
+    String? name,
+    String? originCountry,
+  }) =>
+      ProductionCompanies(
+        id: id ?? this.id,
+        logoPath: logoPath ?? this.logoPath,
+        name: name ?? this.name,
+        originCountry: originCountry ?? this.originCountry,
+      );
+
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['id'] = id;
@@ -287,40 +319,46 @@ ProductionCompanies copyWith({  int? id,
     map['origin_country'] = originCountry;
     return map;
   }
-
 }
 
 class Genres {
   Genres({
-      this.id, 
-      this.name,});
+    this.id,
+    this.name,
+  });
 
   Genres.fromJson(dynamic json) {
     id = json['id'];
     name = json['name'];
   }
+
   int? id;
   String? name;
-Genres copyWith({  int? id,
-  String? name,
-}) => Genres(  id: id ?? this.id,
-  name: name ?? this.name,
-);
+
+  Genres copyWith({
+    int? id,
+    String? name,
+  }) =>
+      Genres(
+        id: id ?? this.id,
+        name: name ?? this.name,
+      );
+
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['id'] = id;
     map['name'] = name;
     return map;
   }
-
 }
 
 class BelongsToCollection {
   BelongsToCollection({
-      this.id, 
-      this.name, 
-      this.posterPath, 
-      this.backdropPath,});
+    this.id,
+    this.name,
+    this.posterPath,
+    this.backdropPath,
+  });
 
   BelongsToCollection.fromJson(dynamic json) {
     id = json['id'];
@@ -328,19 +366,25 @@ class BelongsToCollection {
     posterPath = json['poster_path'];
     backdropPath = json['backdrop_path'];
   }
+
   int? id;
   String? name;
   String? posterPath;
   String? backdropPath;
-BelongsToCollection copyWith({  int? id,
-  String? name,
-  String? posterPath,
-  String? backdropPath,
-}) => BelongsToCollection(  id: id ?? this.id,
-  name: name ?? this.name,
-  posterPath: posterPath ?? this.posterPath,
-  backdropPath: backdropPath ?? this.backdropPath,
-);
+
+  BelongsToCollection copyWith({
+    int? id,
+    String? name,
+    String? posterPath,
+    String? backdropPath,
+  }) =>
+      BelongsToCollection(
+        id: id ?? this.id,
+        name: name ?? this.name,
+        posterPath: posterPath ?? this.posterPath,
+        backdropPath: backdropPath ?? this.backdropPath,
+      );
+
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['id'] = id;
@@ -349,5 +393,4 @@ BelongsToCollection copyWith({  int? id,
     map['backdrop_path'] = backdropPath;
     return map;
   }
-
 }

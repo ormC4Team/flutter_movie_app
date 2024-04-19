@@ -4,9 +4,9 @@ import '../dto/movie_detail_dto.dart';
 
 class MovieDetailApi {
   final http.Client _client;
-  // 'https://api.themoviedb.org/3/movie/693134?api_key=a64533e7ece6c72731da47c9c8bc691f&language=ko-KR';
   final String _baseUrl = 'https://api.themoviedb.org/3/movie/';
   final String _apiKey = 'a64533e7ece6c72731da47c9c8bc691f';
+
   MovieDetailApi({http.Client? client}) : _client = client ?? http.Client();
 
   Future<MovieDetailDto> getMovieDetail(String movieId) async {
