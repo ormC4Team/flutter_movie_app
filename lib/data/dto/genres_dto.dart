@@ -1,9 +1,11 @@
-import 'package:flutter_movie_app/data/model/genre_model.dart';
+import 'package:flutter_movie_app/data/model/genre.dart';
 
 class GenresDto {
   GenresDto({
     this.genres,
   });
+
+  List<Genre>? genres;
 
   GenresDto.fromJson(dynamic json) {
     if (json['genres'] != null) {
@@ -13,7 +15,6 @@ class GenresDto {
       });
     }
   }
-  List<Genre>? genres;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
