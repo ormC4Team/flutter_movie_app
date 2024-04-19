@@ -2,8 +2,8 @@
 
 .env
 Dart_Packages.xml
-.g.dart
-.freezed.dart
+*.g.dart
+*.freezed.dart
 
 # Files and directories created by pub
 .dart_tool/
