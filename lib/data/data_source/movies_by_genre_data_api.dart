@@ -6,7 +6,7 @@ import 'package:http/http.dart' as http;
 class MoviesByGenreDataApi {
   final apiKey = dotenv.get('API_KEY');
 
-  Future<MoviesByGenreDto> getMoviesByGenreDto(List<Genre> genres) async {
+  Future<MoviesByGenreDto> getMoviesByGenre(List<Genre> genres) async {
     String genreIds = genres.map((e) => e.id.toString()).join(',');
 
     final response = await http.get(
