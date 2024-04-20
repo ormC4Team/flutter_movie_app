@@ -7,7 +7,7 @@ class GenreRepository {
   GenreRepository({required GenreDataApi genreDataApi})
       : _genreDataApi = genreDataApi;
 
-  Future<List<Genre>> getUpcomingList() async {
+  Future<List<Genre>> getGenres() async {
     List<Genre> results = [];
 
     final getData = await _genreDataApi.getGenresDto();
