@@ -20,7 +20,7 @@ extension UpcomingMapper on Results {
       title: title ?? '',
       overview: overview ?? '',
       releaseDate: releaseDate ?? '',
-      voteAverage: voteAverage?.toInt() ?? -1,
+      voteAverage: voteAverage?.toDouble() ?? -1,
     );
   }
 }

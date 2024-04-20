@@ -14,7 +14,7 @@ class Upcoming with _$Upcoming {
     required String title,
     required String overview,
     required String releaseDate,
-    required int voteAverage,
+    required double voteAverage,
   }) = _Upcoming;
 
   factory Upcoming.fromJson(Map<String, Object?> json) => _$UpcomingFromJson(json);
