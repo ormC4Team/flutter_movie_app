@@ -1,8 +1,8 @@
-import 'package:flutter_movie_app/data/mapper/movie_detail_mapper.dart';
 import '../../domain/model/movie_detail.dart';
 import '../../domain/repository/movie_detail_repository.dart';
 import '../data_source/movie_detail_api.dart';
 import '../dto/movie_detail_dto.dart';
+import '../mapper/movie_detail_mapper.dart';
 
 class MovieDetailRepositoryImpl implements MovieDetailRepository {
   final MovieDetailApi _movieDetailApi;
