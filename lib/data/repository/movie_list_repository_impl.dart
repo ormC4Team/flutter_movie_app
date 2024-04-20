@@ -1,6 +1,6 @@
 import '../../domain/model/movie_list.dart';
 import '../../domain/repository/movie_list_repository.dart';
-import '../data_source/movie_list.dart';
+import '../data_source/movie_list_api.dart';
 import '../dto/movie_list_dto.dart';
 import '../mapper/movie_list_mapper.dart';
 

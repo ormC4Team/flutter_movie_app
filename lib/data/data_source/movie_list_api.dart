@@ -10,13 +10,13 @@ class MovieListApi {
 
   Future<MovieListDto> getMovieRecommend(String movieId) async {
     final String url = '$_baseUrl/$movieId/recommendations?api_key=$_apiKey&language=ko-KR';
-    final http.Response response = await http.get(Uri.parse(url));
+    final http.Response response = await _client.get(Uri.parse(url));
     return MovieListDto.fromJson(jsonDecode(response.body));
   }
 
   Future<MovieListDto> getMovieSimilar(String movieId) async {
     final String url = '$_baseUrl/$movieId/recommendations?api_key=$_apiKey&language=ko-KR';
-    final http.Response response = await http.get(Uri.parse(url));
+    final http.Response response = await _client.get(Uri.parse(url));
     return MovieListDto.fromJson(jsonDecode(response.body));
   }
 }
