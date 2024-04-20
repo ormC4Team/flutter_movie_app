@@ -15,7 +15,7 @@ class GenreDataApi {
     // 로컬 저장된 장르 목록이 있는지 확인. 있으면 가져온다.
     final String? data = prefs.getString('genres');
     if (data != null) {
-      return jsonDecode(data);
+      return GenresDto.fromJson(data);
     }
 
     // 저장된 데이터가 없을 경우 api 호출
@@ -32,7 +32,7 @@ class GenreDataApi {
     // 로컬에 장르 목록 저장
     await prefs.setString('genres', body);
 
-    return jsonDecode(response.body);
+    return GenresDto.fromJson(jsonDecode(body));
   }
 
   // 선호하는 장르 목록 저장하기
