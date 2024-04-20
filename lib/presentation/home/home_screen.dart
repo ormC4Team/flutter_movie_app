@@ -26,15 +26,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final viewModel = context.watch<HomeViewModel>();
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'NapFlix',
-          style: TextStyle(
-            color: Colors.red,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
       body: viewModel.nowPlayingList.isEmpty && viewModel.upcomingList.isEmpty
           ? const Center(child: CircularProgressIndicator())
           : Padding(
