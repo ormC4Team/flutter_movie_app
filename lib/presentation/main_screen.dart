@@ -25,15 +25,23 @@ class _MainScreenState extends State<MainScreen> {
     switch (_bottomNavigationBarIndex) {
       case 0:
         return AppBar(
-          title: Text('검색Appbar'),
+          title: const Text(
+            'NapFlix',
+            style: TextStyle(
+              color: Colors.red,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         );
+
       case 1:
         return AppBar(
           title: Text('장르Appbar'),
         );
+
       default:
         return AppBar(
-          title: Text('UPCOMMING MOVIES'),
+          title: Text('검색Appbar'),
         );
     }
   }
@@ -42,52 +50,50 @@ class _MainScreenState extends State<MainScreen> {
     // index에 따라 다른 Body를 반환합니다.
     switch (_bottomNavigationBarIndex) {
       case 0:
-        return SearchScreen();
+        return HomeScreen();
       case 1:
         return GenreScreen();
       default:
-        return HomeScreen();
+        return SearchScreen();
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (_) => HomeViewModel(
-          nowPlayingRepository: NowPlayingRepository(
-            nowPlayingApi: NowPlayingApi(),
-          ),
-          upcomingRepository: UpcomingRepository(
-            upcomingApi: UpcomingApi(),
-          ),
+      create: (_) => HomeViewModel(
+        nowPlayingRepository: NowPlayingRepository(
+          nowPlayingApi: NowPlayingApi(),
         ),
-      child: MaterialApp(
-        home: Scaffold(
-          appBar: _buildAppBar(),
-          body: _buildBody(),
-          bottomNavigationBar: BottomNavigationBar(
-            onTap: (int index) {
+        upcomingRepository: UpcomingRepository(
+          upcomingApi: UpcomingApi(),
+        ),
+      ),
+      child: Scaffold(
+        appBar: _buildAppBar(),
+        body: _buildBody(),
+        bottomNavigationBar: BottomNavigationBar(
+          onTap: (int index) {
+            _bottomNavigationBarIndex = index;
+            // 상태관리 클래스의 setState 메서드를 호출하여 화면을 다시 그립니다.
+            setState(() {
               _bottomNavigationBarIndex = index;
-              // 상태관리 클래스의 setState 메서드를 호출하여 화면을 다시 그립니다.
-              setState(() {
-                _bottomNavigationBarIndex = index;
-              });
-            },
-            items: const <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: Icon(Icons.search),
-                label: '검색',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.add_box),
-                label: '장르',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: '메인화면',
-              ),
-            ],
-          ),
+            });
+          },
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: '메인화면',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.add_box),
+              label: '장르',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: '검색',
+            ),
+          ],
         ),
       ),
     );
