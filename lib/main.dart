@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter_movie_app/data/data_source/now_playing_api.dart';
-import 'package:flutter_movie_app/data/data_source/upcoming_api.dart';
-import 'package:flutter_movie_app/data/repository/now_playing_repository.dart';
-import 'package:flutter_movie_app/data/repository/upcoming_repository.dart';
-import 'package:flutter_movie_app/presentation/home/home_screen.dart';
-import 'package:flutter_movie_app/presentation/home/home_view_model.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_movie_app/presentation/main_screen.dart';
 
 void main() async {
   await dotenv.load(fileName: ".env");
@@ -19,19 +13,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => HomeViewModel(
-        nowPlayingRepository: NowPlayingRepository(
-          nowPlayingApi: NowPlayingApi(),
-        ),
-        upcomingRepository: UpcomingRepository(
-          upcomingApi: UpcomingApi(),
-        ),
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
-      child: const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: HomeScreen(),
-      ),
+      home: const MainScreen(),
     );
   }
 }

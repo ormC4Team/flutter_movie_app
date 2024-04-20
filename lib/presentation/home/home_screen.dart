@@ -18,43 +18,44 @@ class _HomeScreenState extends State<HomeScreen> {
 
     Future.microtask(() {
       final viewModel = context.read<HomeViewModel>();
-      viewModel.getNowPlayingList();
-      viewModel.getUpcomingList();
+      viewModel.getMovieList();
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    final viewModel = context.watch<HomeViewModel>();
     return Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'NapFlix',
-            style: TextStyle(
-              color: Colors.red,
-              fontWeight: FontWeight.bold,
-            ),
+      appBar: AppBar(
+        title: const Text(
+          'NapFlix',
+          style: TextStyle(
+            color: Colors.red,
+            fontWeight: FontWeight.bold,
           ),
         ),
-        body: context.watch<HomeViewModel>().upcomingList.isEmpty
-            ? const Center(child: CircularProgressIndicator())
-            : Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      _nowPlaying(),
-                      const SizedBox(
-                        height: 40,
-                      ),
-                      _upcoming(),
-                    ],
-                  ),
+      ),
+      body: viewModel.nowPlayingList.isEmpty && viewModel.upcomingList.isEmpty
+          ? const Center(child: CircularProgressIndicator())
+          : Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    _nowPlaying(viewModel),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    _upcoming(viewModel),
+                  ],
                 ),
-              ));
+              ),
+            ),
+    );
   }
 
-  Widget _nowPlaying() {
-    final nowPlayListViewModel = context.watch<HomeViewModel>().nowPlayingList;
+  Widget _nowPlaying(HomeViewModel viewModel) {
+    final nowPlayListViewModel = viewModel.nowPlayingList;
 
     return GestureDetector(
       onTap: () {},
@@ -90,8 +91,8 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _upcoming() {
-    final upcomingListViewModel = context.watch<HomeViewModel>().upcomingList;
+  Widget _upcoming(HomeViewModel viewModel) {
+    final upcomingListViewModel = viewModel.upcomingList;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

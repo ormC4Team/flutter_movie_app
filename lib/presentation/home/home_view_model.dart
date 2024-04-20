@@ -20,16 +20,10 @@ class HomeViewModel with ChangeNotifier {
 
   List<Upcoming> get upcomingList => _upcomingList;
 
-  void getNowPlayingList() async {
+  void getMovieList() async {
     _nowPlayingList = await _nowPlayingRepository.getNowPlayingList();
-    final sorted = _nowPlayingList.sort((a, b) => a.voteAverage.compareTo(b.voteAverage));
-  }
-
-  void getUpcomingList() async {
     _upcomingList = await _upcomingRepository.getUpcomingList();
-  }
 
-  void getNowPlayingOverview() {
-
+    notifyListeners();
   }
 }
